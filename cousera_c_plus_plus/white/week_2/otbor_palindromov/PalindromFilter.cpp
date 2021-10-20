@@ -17,12 +17,17 @@ bool IsPalindrom (string str) {
 
 vector<string> PalindromFilter (vector<string> words, int minLength) {
     vector <string> result = {};
+    for (auto i : words) {
+        if ((IsPalindrom(i) == true) && (i.size() >= minLength)) {
+            result.push_back(i);
+        }
+    }
     return result;
 }
 
 void test_PalindromFilter () {
     vector <string> test_1 = {"abacaba"};
-    vector <string> test_2 = {"abacaba, aba"};
+    vector <string> test_2 = {"abacaba", "aba"};
     vector <string> test_3 = {"weew"};
     if (PalindromFilter({"abacaba", "aba"}, 5) == test_1) {
         cout << "test_1: OK" << endl;
