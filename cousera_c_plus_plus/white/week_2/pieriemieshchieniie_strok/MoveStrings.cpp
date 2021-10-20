@@ -11,5 +11,10 @@ void MoveString (vector<string>& sourse, vector<string>& destination) {
 }
 
 int main () {
-    return 0;
+    vector<string> source = {"a", "b", "c"};
+    vector<string> destination = {"z"};
+    MoveString(source, destination);
+    for (auto i : destination) {
+        cout << i << " ";
+    }
 }
