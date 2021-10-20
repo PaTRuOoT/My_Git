@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace std;
 
-void MoveString (vector<string>& sourse, vector<string>& destination) {
+void MoveStrings (vector<string>& sourse, vector<string>& destination) {
     for (auto i : sourse) {
         destination.push_back(i);
     }
@@ -13,7 +13,7 @@ void MoveString (vector<string>& sourse, vector<string>& destination) {
 int main () {
     vector<string> source = {"a", "b", "c"};
     vector<string> destination = {"z"};
-    MoveString(source, destination);
+    MoveStrings(source, destination);
     for (auto i : destination) {
         cout << i << " ";
     }
