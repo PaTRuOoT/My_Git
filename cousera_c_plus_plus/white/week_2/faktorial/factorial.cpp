@@ -10,7 +10,7 @@ int Factorial (int x) {
     return answer;
 }
 
-void test_Factorial (int test_x) {
+void test_Factorial () {
     
     if (Factorial(0) == 1) {
         cout << "test_1: OK" << endl;
@@ -18,5 +18,6 @@ void test_Factorial (int test_x) {
 }
 
 int main () {
+    test_Factorial ();
     return 0;
 }
