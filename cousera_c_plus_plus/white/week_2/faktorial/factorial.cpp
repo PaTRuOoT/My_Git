@@ -35,6 +35,5 @@ void test_Factorial () {
 }
 
 int main () {
-    test_Factorial ();
     return 0;
 }
