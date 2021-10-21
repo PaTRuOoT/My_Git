@@ -32,18 +32,6 @@ int main () {
             }
             cout << sum << endl;
         }
-        
-        for (const auto& i : people_in_queue) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    
-    // WORRY i - V
-    // QUIET i - V
-    // COME k - V
-    // COME -k - V
-    // WORRY_COUNT - V
-    
+    }  
     return 0;
 }
