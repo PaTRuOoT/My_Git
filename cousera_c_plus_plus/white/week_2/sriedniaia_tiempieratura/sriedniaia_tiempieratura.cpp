@@ -8,7 +8,6 @@ K - число дней с темперурой > average_temp
 Вход: N => значения температуры по дням
 Выход: K => номера этих дней
 */
-#include <string>
 #include <vector>
 #include <iostream>
 
