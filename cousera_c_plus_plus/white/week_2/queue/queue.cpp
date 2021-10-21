@@ -18,13 +18,17 @@ int main () {
             people_in_queue.resize(size_vector, false);
         } else if (A == "WORRY") {
             people_in_queue[B] = true;
+        } else if (A == "QUIET")
+        {
+            people_in_queue[B] = false;
+        }
+        for (const auto& i : people_in_queue) {
+            cout << i << " ";
         }
     }
-    for (const auto& i : people_in_queue) {
-        cout << i << " ";
-    }
-    // WORRY i - X
-    // QUIET i - X
+    
+    // WORRY i - V
+    // QUIET i - V
     // COME k - V
     // COME -k - V
     // WORRY_COUNT - X
