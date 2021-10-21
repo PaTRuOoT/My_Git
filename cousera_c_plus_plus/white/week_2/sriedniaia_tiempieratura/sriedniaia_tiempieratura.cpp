@@ -30,6 +30,10 @@ vector<int> MeanTemperatureFilter (const vector<int>& v) {
             MeanTemperatureVector.push_back(i);
         }
      }
+    cout << MeanTemperatureVector.size() << endl;
+    for (const auto& i : MeanTemperatureVector) {
+        cout << i << " ";
+    }
     return MeanTemperatureVector;
 }
 
@@ -46,9 +50,5 @@ vector<int> FillingTemperature () {
 }
 
 int main () {
-    vector<int> OurVector = MeanTemperatureFilter(FillingTemperature());
-    cout << OurVector.size() << endl;
-    for (auto i : OurVector) {
-        cout << i << " ";
-    }
+    MeanTemperatureFilter(FillingTemperature());
 }
