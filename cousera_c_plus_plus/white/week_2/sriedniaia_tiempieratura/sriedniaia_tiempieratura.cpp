@@ -24,9 +24,10 @@ int AverageTemperatureCalculation (const vector<int>& v) {
 }
 
 vector<int> MeanTemperatureFilter (const vector<int>& v) {
+    int average_tmp = AverageTemperatureCalculation(v);
     vector<int> MeanTemperatureVector;
     for (int i = 0; i < v.size(); ++i) {
-        if (v[i] > AverageTemperatureCalculation(v)) {
+        if (v[i] > average_tmp) {
             MeanTemperatureVector.push_back(i);
         }
      }
