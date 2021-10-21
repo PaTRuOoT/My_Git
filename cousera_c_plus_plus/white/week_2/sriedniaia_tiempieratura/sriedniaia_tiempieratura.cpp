@@ -47,7 +47,9 @@ vector<int> FillingTemperature () {
 }
 
 int main () {
-    for (auto i : MeanTemperatureFilter(FillingTemperature())) {
+    vector<int> OurVector = MeanTemperatureFilter(FillingTemperature());
+    cout << OurVector.size() << endl;
+    for (auto i : OurVector) {
         cout << i << " ";
     }
 }
