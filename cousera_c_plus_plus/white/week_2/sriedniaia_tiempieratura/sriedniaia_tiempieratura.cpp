@@ -35,7 +35,6 @@ vector<int> MeanTemperatureFilter (const vector<int>& v) {
     for (const auto& i : MeanTemperatureVector) {
         cout << i << " ";
     }
-    return MeanTemperatureVector;
 }
 
 vector<int> FillingTemperature () {
