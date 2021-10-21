@@ -13,10 +13,10 @@ K - число дней с темперурой > average_temp
 
 using namespace std;
 
-double AverageTemperatureCalculation (const vector<int>& v) {
-    double average_tmp = 0;
-    double sum = 0;
-    for (auto i : v) {
+int AverageTemperatureCalculation (const vector<int>& v) {
+    int average_tmp = 0;
+    int sum = 0;
+    for (const auto& i : v) {
         sum += i;
     }
     average_tmp = sum / v.size();
