@@ -14,7 +14,7 @@ K - число дней с темперурой > average_temp
 
 using namespace std;
 
-double AverageTemperatureCalculation (vector<int> v) {
+double AverageTemperatureCalculation (const vector<int>& v) {
     double average_tmp = 0;
     double sum = 0;
     for (auto i : v) {
@@ -22,6 +22,16 @@ double AverageTemperatureCalculation (vector<int> v) {
     }
     average_tmp = sum / v.size();
     return average_tmp;
+}
+
+vector<int> MeanTemperatureFilter (const vector<int>& v) {
+    vector<int> MeanTemperatureVector;
+    for (auto i : v) {
+        if (i > AverageTemperatureCalculation(v)) {
+            MeanTemperatureVector.push_back(i);
+        }
+     }
+    return MeanTemperatureVector;
 }
 
 vector<int> FillingTemperature () {
@@ -37,6 +47,7 @@ vector<int> FillingTemperature () {
 }
 
 int main () {
-    vector<int> vect = {5, 6, 10, 8};
-    cout << AverageTemperatureCalculation(vect);
+    for (auto i : MeanTemperatureFilter(FillingTemperature())) {
+        cout << i << " ";
+    }
 }
