@@ -1,6 +1,7 @@
-#include<vector>
-#include<string>
-#include<iostream>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,24 +14,25 @@ int main () {
     cin >> N;
     for (int i = 0; i < N; ++i) {
         cin >> A;
-        if (A == "COME") {
+        if (A == "COME") 
+        {
             cin >> B;
             size_vector += B;
             people_in_queue.resize(size_vector, false);
-        } else if (A == "WORRY") {
+        } 
+        else if (A == "WORRY") 
+        {
             cin >> B;
             people_in_queue[B] = true;
-        } else if (A == "QUIET") {
+        } 
+        else if (A == "QUIET") 
+        {
             cin >> B;
             people_in_queue[B] = false;
-        } else if (A == "WORRY_COUNT") {
-            int sum = 0;
-            for (const auto& i : people_in_queue) {
-                if (i == true) {
-                    sum++;
-                }
-            }
-            cout << sum << endl;
+        } 
+        else if (A == "WORRY_COUNT") 
+        {
+            cout << count(begin(people_in_queue), end(people_in_queue), true) << endl;
         }
     }  
     return 0;
