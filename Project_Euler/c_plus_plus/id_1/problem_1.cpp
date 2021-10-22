@@ -20,6 +20,10 @@ int FindingTheSumOfNaturalNumbersLessThanN (int N) {
     return 0;
 }
 
+void test_FindingTheSumOfNaturalNumbersLessThanN () {
+    
+}
+
 int main () {
     return 0;
 }
