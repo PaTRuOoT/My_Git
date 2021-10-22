@@ -13,15 +13,29 @@ RUS:
 Найдите сумму всех чисел меньше 1000, кратных 3 или 5.
  */
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int FindingTheSumOfNaturalNumbersLessThanN (int N) {
-    return 0;
+int FindingTheSumOfNaturalNumbersLessThanN (int N, int A, int B) {
+
+    /* 
+    The function takes an integer N. Prints the sum of all natural 
+    numbers divisible by A or B 
+    */
+    int sum = 0; // Variable for calculating the sum of numbers
+    for (int i = 0; i < N; i++) { // We iterate over all numbers 
+    // from 0 to N. If the number satisfies the condition, 
+    // we increase sum by this number
+        if (i % A == 0 || i % B == 0) {
+            sum += i;
+        }
+    }
+    return sum; // return the required number
 }
 
 void test_FindingTheSumOfNaturalNumbersLessThanN () {
-    if (FindingTheSumOfNaturalNumbersLessThanN(10) == 23) {
+    if (FindingTheSumOfNaturalNumbersLessThanN(10, 3, 5) == 23) {
         cout << "Test-1: OK" << endl;
     } else {
         cout << "Test-1: FAIL" << endl;
