@@ -44,5 +44,6 @@ void test_FindingTheSumOfNaturalNumbersLessThanN () {
 
 int main () {
     test_FindingTheSumOfNaturalNumbersLessThanN();
+    cout << FindingTheSumOfNaturalNumbersLessThanN(1000, 3, 5);
     return 0;
 }
