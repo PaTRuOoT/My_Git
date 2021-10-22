@@ -16,6 +16,10 @@ RUS:
 
 using namespace std;
 
+int FindingTheSumOfNaturalNumbersLessThanN (int N) {
+    return 0;
+}
+
 int main () {
     return 0;
 }
