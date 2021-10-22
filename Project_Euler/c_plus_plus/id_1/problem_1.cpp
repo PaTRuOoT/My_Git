@@ -13,12 +13,10 @@ RUS:
 Найдите сумму всех чисел меньше 1000, кратных 3 или 5.
  */
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int FindTheSumOfAllNumbersLessThan_N_MultiplesOf_A_or_B (int N, int A, int B) {
-
     /* 
     The function takes an integer N. Prints the sum of all natural 
     numbers divisible by A or B 
