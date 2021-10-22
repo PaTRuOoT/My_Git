@@ -21,9 +21,14 @@ int FindingTheSumOfNaturalNumbersLessThanN (int N) {
 }
 
 void test_FindingTheSumOfNaturalNumbersLessThanN () {
-    
+    if (FindingTheSumOfNaturalNumbersLessThanN(10) == 23) {
+        cout << "Test-1: OK" << endl;
+    } else {
+        cout << "Test-1: FAIL" << endl;
+    }
 }
 
 int main () {
+    test_FindingTheSumOfNaturalNumbersLessThanN();
     return 0;
 }
