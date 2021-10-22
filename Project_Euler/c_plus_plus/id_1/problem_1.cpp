@@ -17,7 +17,7 @@ RUS:
 
 using namespace std;
 
-int FindingTheSumOfNaturalNumbersLessThanN (int N, int A, int B) {
+int FindTheSumOfAllNumbersLessThan_N_MultiplesOf_A_or_B (int N, int A, int B) {
 
     /* 
     The function takes an integer N. Prints the sum of all natural 
@@ -35,7 +35,7 @@ int FindingTheSumOfNaturalNumbersLessThanN (int N, int A, int B) {
 }
 
 void test_FindingTheSumOfNaturalNumbersLessThanN () {
-    if (FindingTheSumOfNaturalNumbersLessThanN(10, 3, 5) == 23) {
+    if (FindTheSumOfAllNumbersLessThan_N_MultiplesOf_A_or_B(10, 3, 5) == 23) {
         cout << "Test-1: OK" << endl;
     } else {
         cout << "Test-1: FAIL" << endl;
@@ -44,6 +44,6 @@ void test_FindingTheSumOfNaturalNumbersLessThanN () {
 
 int main () {
     test_FindingTheSumOfNaturalNumbersLessThanN();
-    cout << FindingTheSumOfNaturalNumbersLessThanN(1000, 3, 5);
+    cout << FindTheSumOfAllNumbersLessThan_N_MultiplesOf_A_or_B(1000, 3, 5);
     return 0;
 }
