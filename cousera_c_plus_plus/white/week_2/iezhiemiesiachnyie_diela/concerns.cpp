@@ -11,12 +11,8 @@ Q - число операций
 
 using namespace std;
 
-// вектор количества дней по месяцам (31, 30 и тд)
-// вектор со списком дел ({месяц 1, 2 и тд}, {день}, {список дел})
-// ф-ция вывода списка дел в конкретный день с аргументом день
-// ф-ция инициализации вектора на месяц month
-
-void PrintToDoListInDay (const vector<vector<string>>& v, int day) {
+void PrintToDoListInDay (const vector<vector<string>>& v, const int& day) {
+    cout << v[day-1].size() << " ";
     for (int i=0; i < v[day-1].size(); ++i) {
         cout << v[day-1][i] << " ";
     }
@@ -25,11 +21,11 @@ void PrintToDoListInDay (const vector<vector<string>>& v, int day) {
 }
 
 int main () {
-    int month = 1; // текущий месяц
+    int month = 1;
     vector<int> days_in_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     vector<vector<string>> to_do_list = {};
     to_do_list.resize(days_in_month[month-1], {});
-    int N = 0; // количество операций
+    int N = 0;
     cin >> N;
     for (int i = 0; i < N; ++i) {
         string A;
@@ -45,9 +41,9 @@ int main () {
                     for (int i = days_in_month[month-1]; i < days_in_month[month-2]; i++) { 
                         for (int j = 0; j < to_do_list[i].size(); j++) {
                             to_do_list[days_in_month[month-1]-1].push_back(to_do_list[i][j]);
-                        }
-                        to_do_list.resize(days_in_month[month-1]);
+                        }      
                     }
+                    to_do_list.resize(days_in_month[month-1]);
                 }
             }
         } else if (A == "DUMP") {
