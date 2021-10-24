@@ -4,9 +4,8 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: g++.exe сборка активного файла",
-			"command": "C:\\dev\\mingw32\\bin\\g++.exe",
+			"command": "C:\\dev\\mingw64\\bin\\g++.exe",
 			"args": [
-				"-Wall",
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
@@ -23,7 +22,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "компилятор: C:\\dev\\mingw32\\bin\\g++.exe"
+			"detail": "компилятор: C:\\dev\\mingw64\\bin\\g++.exe"
 		}
 	]
 }

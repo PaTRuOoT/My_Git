@@ -19,7 +19,8 @@ using namespace std;
 void PrintToDoListInDay (const vector<vector<string>>& v, int day) {
     for (int i=0; i < v[day-1].size(); ++i) {
         cout << v[day-1][i] << " ";
-    }    
+    }
+    cout << endl;    
 
 }
 
@@ -34,17 +35,34 @@ int main () {
         string A;
         cin >> A;
         if (A == "NEXT") {
-            cout << "NEXT" << endl;
-            // переход к списку дел на след месяц
+            if (month == 12) {
+                month = 1;
+            } else {
+                month++;
+                if (days_in_month[month-1] > days_in_month[month-2]) {
+                    to_do_list.resize(days_in_month[month-1], {});
+                } else if (days_in_month[month-1] < days_in_month[month-2]) {
+                    for (int i = days_in_month[month-1]; i < days_in_month[month-2]; i++) { 
+                        for (int j = 0; j < to_do_list[i].size(); j++) {
+                            to_do_list[days_in_month[month-1]-1].push_back(to_do_list[i][j]);
+                        }
+                        to_do_list.resize(days_in_month[month-1]);
+                    }
+                }
+            }
         } else if (A == "DUMP") {
-            cout << "DUMP" << endl;
-            // функция вывода дел
+            int day;
+            cin >> day;
+            if (to_do_list[day-1].size() == 0) {
+                cout << 0 << endl; 
+            } else {
+                PrintToDoListInDay(to_do_list, day);
+            }
         } else if (A == "ADD") {
             int i;
             string s;
-            cin >> s >> i;
+            cin >> i >> s;
             to_do_list[i-1].push_back(s);
-            // добавить дело s на день i текущего месяца
         }
     }
     return 0;
