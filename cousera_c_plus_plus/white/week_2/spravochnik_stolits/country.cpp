@@ -20,6 +20,7 @@ using namespace std;
 void PrintMap (const map<string, string>& m) {
     for (const auto& i : m) {
         cout << i.first << "/" << i.second;
+        cout << " ";
     }
     cout << endl;
 
@@ -35,25 +36,44 @@ int main () {
         if (A == "CHANGE_CAPITAL") {
             string B, C;
             cin >> B >> C;
-            country_with_capital[B] = C; 
-            // изменение сталицы country на new_capital
-            // или добавление такой страны с такой сталицей
-            // если её раньше не было
+            if (country_with_capital.count(B) == 0) {
+                cout << "Introduce new country " << B << " with capital ";
+                cout << C << endl;
+                country_with_capital[B] = C; 
+            } else if (country_with_capital[B] == C) {
+                cout << "Country " << B << " hasn't changed its capital" << endl;
+            } else {
+                cout << "Country " << B << " has changed its capital from ";
+                cout << country_with_capital[B] << " to " << C << endl;
+                country_with_capital[B] = C; 
+            }
         } else if (A == "RENAME") {
             string B, C;
             cin >> B >> C;
-            country_with_capital[C] = country_with_capital[B];
-            country_with_capital.erase(B);
-            // переименование страны из old_country_name
-            // в new_country_name
+            if (B == C || 
+                country_with_capital.count(B) == 0 ||
+                country_with_capital.count(C) == 1) {
+                cout << "Incorrect rename, skip" << endl;
+            } else {
+                cout << "Country " << B << " with capital " << country_with_capital[B];
+                cout << " has been renamed to " << C << endl;
+                country_with_capital[C] = country_with_capital[B];
+                country_with_capital.erase(B);
+            }
         } else if (A == "ABOUT") {
             string B;
             cin >> B;
-            cout <<  country_with_capital[B] << endl;
-            // вывод сталицы страны country
+            if (country_with_capital.count(B) == 0) {
+                cout << "Country " << B << " doesn't exist" << endl;
+            } else {
+                cout << "Country " << B << " has capital " << country_with_capital[B] << endl;
+            }
         } else if (A == "DUMP") {
-            PrintMap(country_with_capital);
-            // вывод столиц всех стран
+            if (country_with_capital.size() == 0) {
+                cout << "There are no countries in the world" << endl;
+            } else { 
+                PrintMap(country_with_capital);
+            }
         }
     }
     return 0;
