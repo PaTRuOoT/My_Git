@@ -5,66 +5,67 @@
 
 using namespace std;
 
-void PrintMap (const map<string, map<int, string>>& m) {
-    for (const auto& i : m) {
-        cout << "Bus " << i.first << ":";
-        for (const auto& j : i.second) {
-            cout << " " << j.second;
+void PrintMap (const map<int, vector<string>>& m) {
+    if (m.size() == 0) {
+        cout << "No buses" << endl;
+    } else {
+        for (const auto& i : m) {
+            cout << "Bus " << i.second[0] << ": ";
+            for (int j = 1; j < i.second.size(); j++) {
+                cout << i.second[j] << " ";
+            }
+            cout << endl;
         }
+    }
+}
+
+void Print_BUSES_FOR_STOP (const string& stop, const map<int, vector<string>>& m) {
+    int count_stop = 0;
+    for (const auto& i : m) {
+        for (int j = 1; j < i.second.size(); j++) {
+            if (i.second[j] == stop) {
+                cout << i.second[0] << " ";
+                count_stop++;
+            }
+        }
+    }
+    if (count_stop == 0) {
+        cout << "No stop" << endl;
+    } else {
         cout << endl;
     }
 }
 
 int main() {
 
-    int Q = 0; // количество запросов
+    int Q = 0;
     cin >> Q;
-    map<string, map<int, string>> bus_routes;
+    map<int, vector<string>> bus_routes;
+    int count_bus_routes = 0;
     for (int i = 0; i < Q; i++) {
         string inquiry;
         cin >> inquiry;
         if (inquiry == "NEW_BUS") {
-            map<int, string> tmp_map; // временный словарь
-            int stop_count; // количество остановок на маршруте
-            string bus; // название маршрута
-            cin >> bus >> stop_count; 
+            string bus, stop;
+            int stop_count;
+            cin >> bus >> stop_count;
+            bus_routes[count_bus_routes].push_back(bus);
             for (int i = 0; i < stop_count; i++) {
-                string stop;
                 cin >> stop;
-                tmp_map[i] = stop; 
+                bus_routes[count_bus_routes].push_back(stop);
             }
-            bus_routes[bus] = tmp_map;
+            count_bus_routes++;
         } else if (inquiry == "BUSES_FOR_STOP") {
-            // список автобусов через остановку stop
             string stop;
             cin >> stop;
-            int count_stop = 0;
-            for (const auto& i : bus_routes) {
-                for (const auto& j : i.second) {
-                    if (j.second == stop) {
-                        ++count_stop;
-                        cout << i.first << " ";
-                        break;
-                    }
-                }
-            }
-            if (count_stop == 0) {
-                cout << "No stop" << endl;
-            } else {
-                cout << endl;
-            }
+            Print_BUSES_FOR_STOP(stop, bus_routes);
         } else if (inquiry == "STOPS_FOR_BUS") {
-            // описания остановок маршрута bus
-            // описание каждой остановки Stop: bus1, bus2 ...
-            // Если через остановку не проезжает ни один автобус,
-            // кроме bus. Вывести no interchange
-            // Если маршрута bus не существует
-            // вывести No bus
+            string bus;
+            cin >> bus;
         } else if (inquiry == "ALL_BUSES") {
             PrintMap(bus_routes);
         }
      }
-    /* code */
     return 0;
 }
 
