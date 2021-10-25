@@ -9,10 +9,16 @@ void PrintMap (const map<int, vector<string>>& m) {
     if (m.size() == 0) {
         cout << "No buses" << endl;
     } else {
+        // пересортировка map
+        // проходим по всем 
+        map<vector<string>, int> m_reverse;
         for (const auto& i : m) {
-            cout << "Bus " << i.second[0] << ": ";
-            for (int j = 1; j < i.second.size(); j++) {
-                cout << i.second[j] << " ";
+            m_reverse[i.second] = i.first;
+        }
+        for (const auto& i : m_reverse) {
+            cout << "Bus " << i.first[0] << ": ";
+            for (int j = 1; j < i.first.size(); j++) {
+                cout << i.first[j] << " ";
             }
             cout << endl;
         }
@@ -34,7 +40,6 @@ string Print_BUSES_FOR_STOP (const string& stop, const map<int, vector<string>>&
 }
 
 int main() {
-
     int Q = 0;
     cin >> Q;
     map<int, vector<string>> bus_routes;
@@ -84,6 +89,13 @@ int main() {
                                 cout << endl;
                                 continue;
                             } else {
+                                int n = 0;
+                                //cout << "str: " << str << endl;
+                                n = str.find(bus);
+                                //cout << "n: " << n << endl;
+                                //cout << "bus.size+3: 0 " << bus.size() + 1 << endl;
+                                str.erase(n, bus.size() + 1);
+                               // cout << "str_erase: " << str << endl;
                                 cout << "Stop " << i.second[j] << ": " << str << endl;
                             }
                         }
