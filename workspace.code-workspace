@@ -7,7 +7,10 @@
 	"settings": {
 		"files.associations": {
 			"string": "cpp",
-			"iostream": "cpp"
+			"iostream": "cpp",
+			"deque": "cpp",
+			"vector": "cpp",
+			"ostream": "cpp"
 		},
 		"editor.rulers": [80],
 		//    "[git-commit]": {"editor.rulers": [50]},
