@@ -34,6 +34,11 @@ void Print_BUSES_FOR_STOP (const string& stop, const map<int, vector<string>>& m
     } else {
         cout << endl;
     }
+    // No stop
+    // No buses
+    // return: vector ? string
+    // string == bus. Stop stop: no interchange
+    // else cout << string
 }
 
 int main() {
