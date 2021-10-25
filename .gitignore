@@ -1,4 +1,4 @@
 # Exclude all files with extension .exe
 *.exe
-# Exclude all files with extension .exe
+# Exclude all files with extension .json
 *.json
