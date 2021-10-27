@@ -17,11 +17,50 @@ RUS:
 
 Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре 
 миллиона.
+4613732
  */
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
+vector<int> FebonacciNumberGenerator (int x) {
+    vector<int> v_febonacci = {1, 2};
+    int a, b;
+    int c = 0;
+    int i = 0;
+    while (c < x) {
+        a = v_febonacci[i];
+        b = v_febonacci[i+1];
+        v_febonacci.push_back(a + b);
+        c = a + b;
+        i++;
+    }
+    v_febonacci.pop_back();
+    return v_febonacci;
+}
+
+int VectorSum (const vector<int>& v) {
+    int sum = 0;
+    for (const auto& i : v) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+
+void TestTask (const vector<int>& v_febonacchi) {
+    if (VectorSum(v_febonacchi) == 4613732) {
+        cout << "Test_1 - OK" << endl;
+    } else {
+        cout << "Test_1 - FAIL" << endl;
+    }
+}
+
 int main () {
+    vector<int> v_febonacchi = FebonacciNumberGenerator(4000000);
+    TestTask(v_febonacchi);
+    cout << VectorSum(v_febonacchi) << endl;
     return 0;
 }
