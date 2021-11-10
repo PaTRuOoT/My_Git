@@ -55,7 +55,9 @@
 			"numbers": "cpp",
 			"stdexcept": "cpp",
 			"streambuf": "cpp",
-			"iomanip": "cpp"
+			"iomanip": "cpp",
+			"ctime": "cpp",
+			"sstream": "cpp"
 		},
 		"editor.rulers": [80],
 		//    "[git-commit]": {"editor.rulers": [50]},
