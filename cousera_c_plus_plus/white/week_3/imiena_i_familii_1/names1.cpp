@@ -4,58 +4,42 @@
 
 using namespace std;
 
-// если имя неизвестно, возвращает пустую строку
-string FindNameByYear(const map<int, string>& names, int year) {
-  string name;  // изначально имя неизвестно
-  
-  // перебираем всю историю по возрастанию ключа словаря, то есть в хронологическом порядке
-  for (const auto& item : names) {
-    // если очередной год не больше данного, обновляем имя
-    if (item.first <= year) {
-      name = item.second;
+string Find_Name_From_Year (const map<int, string>& map, const int& year) {
+  string str_name = "empty";
+  for (const auto& i : map) {
+    if (i.first <= year) {
+      str_name = i.second;
     } else {
-      // иначе пора остановиться, так как эта запись и все последующие относятся к будущему
       break;
     }
   }
-  
-  return name;
+  return str_name;
 }
 
 class Person {
 public:
   void ChangeFirstName(int year, const string& first_name) {
-    first_names[year] = first_name;
+    map_first_name[year] = first_name;
   }
   void ChangeLastName(int year, const string& last_name) {
-    last_names[year] = last_name;
+    map_last_name[year] = last_name;
   }
   string GetFullName(int year) {
-    // получаем имя и фамилию по состоянию на год year
-    const string first_name = FindNameByYear(first_names, year);
-    const string last_name = FindNameByYear(last_names, year);
-    
-    // если и имя, и фамилия неизвестны
-    if (first_name.empty() && last_name.empty()) {
+    string str_first_name = Find_Name_From_Year(map_first_name, year);
+    string str_last_name = Find_Name_From_Year(map_last_name, year);
+    if (str_first_name == "empty" && str_last_name == "empty") {
       return "Incognito";
-    
-    // если неизвестно только имя
-    } else if (first_name.empty()) {
-      return last_name + " with unknown first name";
-      
-    // если неизвестна только фамилия
-    } else if (last_name.empty()) {
-      return first_name + " with unknown last name";
-      
-    // если известны и имя, и фамилия
+    } else if (str_first_name == "empty") {
+      return str_last_name + " with unknown first name";
+    } else if (str_last_name == "empty") {
+      return str_first_name + " with unknown last name";
     } else {
-      return first_name + " " + last_name;
+      return str_first_name + " " + str_last_name;
     }
   }
-
 private:
-  map<int, string> first_names;
-  map<int, string> last_names;
+  map<int, string> map_first_name;
+  map<int, string> map_last_name;
 };
 
 int main() {
