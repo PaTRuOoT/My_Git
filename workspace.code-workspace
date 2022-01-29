@@ -61,7 +61,8 @@
 			"iomanip": "cpp",
 			"ctime": "cpp",
 			"sstream": "cpp",
-			"chrono": "cpp"
+			"chrono": "cpp",
+			"ratio": "cpp"
 		},
 		"editor.rulers": [80],
 		//    "[git-commit]": {"editor.rulers": [50]},
