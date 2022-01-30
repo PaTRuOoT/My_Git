@@ -64,7 +64,9 @@
 			"chrono": "cpp",
 			"ratio": "cpp"
 		},
-		"editor.rulers": [80],
+		"editor.rulers": [
+			80
+		],
 		//    "[git-commit]": {"editor.rulers": [50]},
 		//    "[python]": {"editor.rulers": [79, 120]},
 		//    "[c++]": {"editor.rulers": [79, 120]},
